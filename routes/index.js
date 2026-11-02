@@ -14,19 +14,19 @@ router.post('/generate_recipe', function(req, res, next) {
     console.log("Ingredients received:", userIngredients)
 
     generateRecipe(userIngredients)
-        .then(recipeJson => {
-            console.log("Recipe generated:", recipeJson)
+    .then(recipeJson => {
+        console.log("Recipe generated:", recipeJson)
 
-            return res.render('recipe_result', {
-                userIngredients: userIngredients,
-                recipeJson: recipeJson
-            })
+        return res.render('recipe_result', {
+            userIngredients: userIngredients,
+            recipeJson: recipeJson
         })
-        .catch(err => {
-            console.error("RECIPE GENERATION ERROR:")
-            console.error(err)
-            return next(err)
-        })
+    })
+    .catch(err => {
+        console.error("RECIPE GENERATION ERROR:")
+        console.error(err)
+        return next(err)
+    })
 })
 
 module.exports = router
