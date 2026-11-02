@@ -1,6 +1,8 @@
 let { GoogleGenAI, Type } = require("@google/genai")
 
-const genAI = new GoogleGenAI({ });
+const genAI = new GoogleGenAI({ 
+    apiKey: process.env.GEMINI_API_KEY
+});
 
 const systemInstruction = `You are a recipe suggestion bot for a health-conscious, budget-friendly website.
     Suggest recipes that are low cost and use healthy ingredients. You don't have to use all the
